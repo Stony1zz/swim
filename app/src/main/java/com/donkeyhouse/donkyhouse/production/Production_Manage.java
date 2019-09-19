@@ -24,7 +24,6 @@ public class Production_Manage extends AppCompatActivity implements View.OnClick
     RecyclerView recyclerView;
     private List<SwimmingPool>SwimmingPoolList=new ArrayList<>();
     private TextView  search_ll;
-    private SelfDialogadd selfDialogadd;
     private ImageView search_history;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,28 +40,7 @@ public class Production_Manage extends AppCompatActivity implements View.OnClick
         ProductionAdapter adapter = new ProductionAdapter(SwimmingPoolList);
         recyclerView.setAdapter(adapter);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.float_bar1);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selfDialogadd = new SelfDialogadd(Production_Manage.this);
-                selfDialogadd.setYesOnclickListener("添加",new SelfDialogadd.onYesOnclickListener(){
-                    @Override
-                    public void onYesClick() {
-                        Toast.makeText(Production_Manage.this,"添加成功",Toast.LENGTH_SHORT).show();
-                        selfDialogadd.dismiss();
-                    }
-                });
-                selfDialogadd.setNoOnclickListener("取消", new SelfDialogadd.onNoOnclickListener() {
-                    @Override
-                    public void onNoClick() {
-                        Toast.makeText(Production_Manage.this,"取消添加",Toast.LENGTH_SHORT).show();
-                        selfDialogadd.dismiss();
-                    }
-                });
-                selfDialogadd.show();
-            }
-        });
+       // FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.float_bar1);
     }
 
     private void initSwim() {

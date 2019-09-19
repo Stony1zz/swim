@@ -39,7 +39,7 @@ import okhttp3.Response;
 public class DataVisual extends AppCompatActivity {
 
 
-    private List<DataEntry> seriesData = new ArrayList<>();
+    private static List<DataEntry> seriesData = new ArrayList<>();
     private Cartesian cartesian;
     private Handler handler;
     private AnyChartView anyChartView;
@@ -82,7 +82,7 @@ public class DataVisual extends AppCompatActivity {
                 .yStroke((Stroke) null, null, null, (String) null, (String) null);
 
         cartesian.tooltip().positionMode(TooltipPositionMode.POINT);
-        cartesian.title("驴舍温度、湿度、光照条件数据可视化");
+        cartesian.title("泳池温度、湿度、压力条件数据可视化");
         cartesian.yAxis(0).title("温湿度、光照等数值");
         cartesian.xAxis(0).labels().padding(5d, 5d, 5d, 5d);
         initServe();
@@ -94,9 +94,9 @@ public class DataVisual extends AppCompatActivity {
             public void run() {
                 OkHttpClient client = new OkHttpClient();
                 Request.Builder builder = new Request.Builder();
-                Request request1 = builder.get().url("http://192.168.0.100:8080/history/listTemperatureHistory?limit=20").build();
-                Request request2 = builder.get().url("http://192.168.0.100:8080/history/listHumidityHistory?limit=20").build();
-                Request request3 = builder.get().url("http://192.168.0.100:8080/history/listIlluminationHistory?limit=20").build();
+                Request request1 = builder.get().url("http://192.168.0.102:8080/history/listNataHis/").build();
+                Request request2 = builder.get().url("http://192.168.0.102:8080/history/listNataHis/").build();
+                Request request3 = builder.get().url("http://192.168.0.102:8080/history/listNataHis/").build();
                 try {
                     Response response1 = client.newCall(request1).execute();
                     Response response2 = client.newCall(request2).execute();
@@ -135,13 +135,13 @@ public class DataVisual extends AppCompatActivity {
                 JSONObject row1 = null;
                 JSONObject row2 = null;
                 JSONObject row3 = null;
-                for (int i = 18; i >= 0; i--) {
+                for (int i = 8; i >= 0; i--) {
                     try {
                         row1 = data1.getJSONObject(i);
                         row2 = data2.getJSONObject(i);
                         row3 = data3.getJSONObject(i);
-                        seriesData.add(new CustomDataEntry(row1.getString("hometimeId"), Float.parseFloat(row1.getString("temperature")), Float.parseFloat(row2.getString("humidity")), Float.parseFloat(row3.getString("illumination"))));
-                        Log.e("输出:", "parseJSONWithJsonObject: " + row1.get("temperature"));
+                        seriesData.add(new CustomDataEntry(row1.getString("time"), Float.parseFloat(row1.getString("waterTemperature")), Float.parseFloat(row2.getString("airHumidity")), Float.parseFloat(row3.getString("waterTemperature"))));
+                        Log.e("输出:", "parseJSONWithJsonObject: " + row1.get("waterTemperature"));
                         handler.sendEmptyMessage(1);
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -185,7 +185,7 @@ public class DataVisual extends AppCompatActivity {
                 .offsetY(5d);
 
         Line series3 = cartesian.line(series3Mapping);
-        series3.name("光照");
+        series3.name("水压");
         series3.hovered().markers().enabled(true);
         series3.hovered().markers()
                 .type(MarkerType.CIRCLE)

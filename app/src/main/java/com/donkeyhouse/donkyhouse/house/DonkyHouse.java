@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.donkeyhouse.donkyhouse.R;
 import com.donkeyhouse.donkyhouse.adapter.HouseAdapter;
-import com.donkeyhouse.donkyhouse.bean.House;
+import com.donkeyhouse.donkyhouse.bean.UserHistory;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,11 +33,10 @@ import okhttp3.Response;
 
 public class DonkyHouse extends AppCompatActivity implements View.OnClickListener {
     RecyclerView recyclerView;
-    private List<House> housesList = new ArrayList<>();
+    private static List<UserHistory> housesList = new ArrayList<UserHistory>();
     private ImageView house_light;
     private ImageView house_tem;
     private ImageView house_shidu;
-    private ImageView house_nongdu;
     private TextView light;
     private TextView tem;
     private TextView shidu;
@@ -78,15 +77,12 @@ public class DonkyHouse extends AppCompatActivity implements View.OnClickListene
         house_light = findViewById(R.id.house_ligth);
         house_tem = findViewById(R.id.house_tem);
         house_shidu = findViewById(R.id.house_shidu);
-        house_nongdu = findViewById(R.id.house_nongdu);
         light = findViewById(R.id.text_light);
         tem = findViewById(R.id.text_tem);
         shidu = findViewById(R.id.text_shidu);
-        nongdu = findViewById(R.id.text_nongdu);
         house_light.setOnClickListener(this);
         house_tem.setOnClickListener(this);
         house_shidu.setOnClickListener(this);
-        house_nongdu.setOnClickListener(this);
     }
 
     private void initHouse() {
@@ -95,7 +91,7 @@ public class DonkyHouse extends AppCompatActivity implements View.OnClickListene
             public void run() {
                 OkHttpClient client =new OkHttpClient();
                 Request.Builder builder = new Request.Builder();
-                Request request = builder.get().url("http://192.168.0.100:8080/api/listHomes").build();
+                Request request = builder.get().url("http://192.168.0.102:8080/rfid/listUserHis/").build();
                 try {
                     Response response = client.newCall(request).execute();
                     Log.e("22222222222222222222", "run: ");
@@ -129,9 +125,9 @@ public class DonkyHouse extends AppCompatActivity implements View.OnClickListene
         for (int i = 0; i < data.length(); i++) {
             try {
                 row = data.getJSONObject(i);
-                House house = new House(row.getString("homeId"),row.getString("useraccount"),row.getString("temperature"),row.getString("humidity"),row.getString("illumination"));
+                UserHistory house = new UserHistory(Long.parseLong(row.getString("userDataId")),Long.parseLong(row.getString("userId")),row.getString("sensorId"),row.getString("waterPressure"),row.getString("rfidinfo"),row.getString("time"));
                 housesList.add(house);
-                Log.e("输出每个名字:", "parseJSONWithJsonObject: "+row.get("homeId"));
+                Log.e("输出每个名字:", "parseJSONWithJsonObject: "+row.get("userDataId"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -152,51 +148,35 @@ public class DonkyHouse extends AppCompatActivity implements View.OnClickListene
                 house_light.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_clickcange));
                 house_tem.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_top));
                 house_shidu.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_top));
-                house_nongdu.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_top));
                 light.setTextColor(Color.WHITE);
                 tem.setTextColor(getResources().getColor(R.color.brown));
                 shidu.setTextColor(getResources().getColor(R.color.brown));
-                nongdu.setTextColor(getResources().getColor(R.color.brown));
+//                nongdu.setTextColor(getResources().getColor(R.color.brown));
                 lishtControl();
                 break;
             case R.id.house_tem:
                 house_light.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_top));
                 house_tem.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_clickcange));
                 house_shidu.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_top));
-                house_nongdu.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_top));
                 light.setTextColor(getResources().getColor(R.color.brown));
                 tem.setTextColor(Color.WHITE);
                 shidu.setTextColor(getResources().getColor(R.color.brown));
-                nongdu.setTextColor(getResources().getColor(R.color.brown));
+              //  nongdu.setTextColor(getResources().getColor(R.color.brown));
                 temControl();
                 break;
             case R.id.house_shidu:
                 house_light.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_top));
                 house_tem.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_top));
                 house_shidu.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_clickcange));
-                house_nongdu.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_top));
                 light.setTextColor(getResources().getColor(R.color.brown));
                 tem.setTextColor(getResources().getColor(R.color.brown));
                 shidu.setTextColor(Color.WHITE);
-                nongdu.setTextColor(getResources().getColor(R.color.brown));
+               // nongdu.setTextColor(getResources().getColor(R.color.brown));
                 shiduControl();
-                break;
-            case R.id.house_nongdu:
-                house_light.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_top));
-                house_tem.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_top));
-                house_shidu.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_top));
-                house_nongdu.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_clickcange));
-                light.setTextColor(getResources().getColor(R.color.brown));
-                tem.setTextColor(getResources().getColor(R.color.brown));
-                shidu.setTextColor(getResources().getColor(R.color.brown));
-                nongdu.setTextColor(Color.WHITE);
-                nongduControl();
                 break;
         }
     }
 
-    private void nongduControl() {
-    }
 
     private void shiduControl() {
     }

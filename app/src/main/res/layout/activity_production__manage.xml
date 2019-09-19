@@ -50,13 +50,4 @@
         android:background="@mipmap/icon_history"
         />
     <include layout="@layout/content_main" />
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/float_bar1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/colordialog"
-        app:srcCompat="@mipmap/icon_dialogadd"
-        android:layout_marginTop="700dp"
-        android:layout_marginLeft="320dp"
-        />
 </android.support.design.widget.CoordinatorLayout>

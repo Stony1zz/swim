@@ -25,7 +25,7 @@ import okhttp3.Response;
 
 public class RFIDHistory extends AppCompatActivity {
     RecyclerView recyclerView;
-    private List<UserHistory> historyList = new ArrayList<>();
+    private static List<UserHistory> historyList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +47,7 @@ public class RFIDHistory extends AppCompatActivity {
             public void run() {
                 OkHttpClient client =new OkHttpClient();
                 Request.Builder builder = new Request.Builder();
-                Request request = builder.get().url("http://192.168.0.101:8080/history/listDonkeyHistory?limit=20").build();
+                Request request = builder.get().url("http://192.168.0.102:8080/rfid/listUserHis/").build();
                 try {
                     Response response = client.newCall(request).execute();
                     String responseData = response.body().string();
@@ -77,11 +77,11 @@ public class RFIDHistory extends AppCompatActivity {
                 for (int i = 0; i < data.length(); i++) {
                     try {
                         row = data.getJSONObject(i);
-                        UserHistory rHistory = new UserHistory(Long.parseLong(row.getString("userDataId")),Long.parseLong(row.getString("userId")),row.getString("sensorId"),row.getString("waterPressure"),row.getString("RFIDInfo"),row.getString("time"));
+                        UserHistory rHistory = new UserHistory(Long.parseLong(row.getString("userDataId")),Long.parseLong(row.getString("userId")),row.getString("sensorId"),row.getString("waterPressure"),row.getString("rfidinfo"),row.getString("time"));
                         Log.d("hitory" +
                                 "", String.valueOf(rHistory));
                         historyList.add(rHistory);
-                        Log.e("输出每个名字:", "parseJSONWithJsonObject: "+row.get("donkeyId"));
+                        Log.e("输出每个名字:", "parseJSONWithJsonObject: "+row.get("userDataId"));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

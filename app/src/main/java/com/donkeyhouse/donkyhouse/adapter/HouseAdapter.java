@@ -14,12 +14,13 @@ import android.widget.TextView;
 
 import com.donkeyhouse.donkyhouse.R;
 import com.donkeyhouse.donkyhouse.bean.House;
+import com.donkeyhouse.donkyhouse.bean.UserHistory;
 import com.donkeyhouse.donkyhouse.house.DataVisual;
 
 import java.util.List;
 
 public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.ViewHolder>{
-    private List<House> mhouse;
+    private List<UserHistory> mhouse;
     private Context mContext;
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView house_num;
@@ -40,7 +41,7 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.ViewHolder>{
             house_card = itemView.findViewById(R.id.house_card);
         }
     }
-    public HouseAdapter(List<House> mhouse){this.mhouse = mhouse;}
+    public HouseAdapter(List<UserHistory> mhouse){this.mhouse = mhouse;}
     @NonNull
     @Override
     public HouseAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, final int i) {
@@ -70,19 +71,19 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull HouseAdapter.ViewHolder viewHolder, int i) {
-        House house = mhouse.get(i);
-        viewHolder.house_num.setText(house.getHouse_num());
-        viewHolder.house_shuliang.setText(house.getHouse_shuliang());
-        viewHolder.house_wendu.setText(house.getHouse_wendu());
-        viewHolder.house_shidu.setText(house.getHouse_shidu());
-        viewHolder.house_nongdu.setText(house.getHouse_nongdu());
+        UserHistory house = mhouse.get(i);
+        viewHolder.house_num.setText(String.valueOf(house.getUserId()));
+        viewHolder.house_shuliang.setText(house.getRFIDInfo());
+        viewHolder.house_wendu.setText(house.getWaterPressure());
+        viewHolder.house_shidu.setText(house.getSensorId());
+        viewHolder.house_nongdu.setText(house.getTime());
         viewHolder.house_warning.setVisibility(View.INVISIBLE);
         //湿度
-        if (Float.parseFloat(house.getHouse_shidu())  <  35.0){
+        if (Float.parseFloat(house.getWaterPressure())  >  400.0){
             viewHolder.house_shidu.setTextColor(Color.RED);
             viewHolder.house_warning.setVisibility(View.VISIBLE);
         }
-        //温度
+/*        //温度
         if (Float.parseFloat(house.getHouse_wendu())  >  60.0){
             viewHolder.house_wendu.setTextColor(Color.RED);
             viewHolder.house_warning.setVisibility(View.VISIBLE);
@@ -91,7 +92,7 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.ViewHolder>{
         if (Float.parseFloat(house.getHouse_nongdu())  <  400.0){
             viewHolder.house_nongdu.setTextColor(Color.RED);
             viewHolder.house_warning.setVisibility(View.VISIBLE);
-        }
+        }*/
     }
 
     @Override

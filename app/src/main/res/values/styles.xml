@@ -9,7 +9,7 @@
     </style>
 
     <style name="line">
-        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:background">@color/colorPrimary</item>
     </style>
     <style name="line_vertical" parent="line">
         <item name="android:layout_width">match_parent</item>
