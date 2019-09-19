@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/icon_login_bg"
+    >
+    <TextView
+        android:layout_marginTop="70dp"
+        android:layout_gravity="center"
+        android:textSize="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="游泳安全馆"/>
+    <LinearLayout
+        android:layout_width="310dp"
+        android:layout_height="55dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+        android:background="@drawable/login_btn"
+        >
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@mipmap/icon_login_mine"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="10dp"
+            />
+        <EditText
+            android:id="@+id/login_account"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="310dp"
+        android:layout_height="55dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/login_btn"
+        >
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@mipmap/icon_login_psw"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="10dp"
+            />
+        <EditText
+            android:id="@+id/login_password"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/jiushengyuan"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="50dp"
+            android:shadowColor="@color/colorPrimaryDark"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="救生员登陆"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <TextView
+            android:id="@+id/goto_regist"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="44dp"
+            android:layout_marginTop="8dp"
+            android:textSize="20dp"
+            android:text="用户注册"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/goto_regist1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="44dp"
+            android:layout_marginTop="8dp"
+            android:textSize="20dp"
+            android:text="救生员注册"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/login_btn"
+        android:text="登录"
+        android:textColor="@color/colorGrayalpha" />
+</LinearLayout>

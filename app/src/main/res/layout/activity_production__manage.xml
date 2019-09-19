@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gray">
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="34dp"
+        android:orientation="vertical"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="36dp"
+        >
+        <LinearLayout
+            android:layout_width="260dp"
+            android:layout_height="34dp"
+            android:background="@drawable/shape3"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/search_LL"
+                android:layout_width="195dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center"
+                android:paddingTop="6dp"
+                android:text="请游泳池的ID号，查看泳池信息"
+                android:textSize="14dp"
+                />
+            <ImageView
+                android:id="@+id/challenge_search"
+                android:layout_width="28dp"
+                android:layout_height="30dp"
+                android:background="@mipmap/icon_search"
+                android:layout_marginLeft="23dp"
+                android:layout_marginTop="2dp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/search_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="330dp"
+        android:background="@mipmap/icon_history"
+        />
+    <include layout="@layout/content_main" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/float_bar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colordialog"
+        app:srcCompat="@mipmap/icon_dialogadd"
+        android:layout_marginTop="700dp"
+        android:layout_marginLeft="320dp"
+        />
+</android.support.design.widget.CoordinatorLayout>
