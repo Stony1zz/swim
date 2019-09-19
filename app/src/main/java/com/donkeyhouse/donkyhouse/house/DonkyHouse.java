@@ -31,16 +31,9 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class DonkyHouse extends AppCompatActivity implements View.OnClickListener {
+public class DonkyHouse extends AppCompatActivity  {
     RecyclerView recyclerView;
     private static List<UserHistory> housesList = new ArrayList<UserHistory>();
-    private ImageView house_light;
-    private ImageView house_tem;
-    private ImageView house_shidu;
-    private TextView light;
-    private TextView tem;
-    private TextView shidu;
-    private TextView nongdu;
     @SuppressLint("HandlerLeak")
     private Handler handler= new Handler(){
         @Override
@@ -63,7 +56,6 @@ public class DonkyHouse extends AppCompatActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donky_house);
-        initData();
         initHouse();
         recyclerView = findViewById(R.id.house_recycle);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -73,17 +65,6 @@ public class DonkyHouse extends AppCompatActivity implements View.OnClickListene
         recyclerView.setAdapter(adapter);
     }
 
-    private void initData() {
-        house_light = findViewById(R.id.house_ligth);
-        house_tem = findViewById(R.id.house_tem);
-        house_shidu = findViewById(R.id.house_shidu);
-        light = findViewById(R.id.text_light);
-        tem = findViewById(R.id.text_tem);
-        shidu = findViewById(R.id.text_shidu);
-        house_light.setOnClickListener(this);
-        house_tem.setOnClickListener(this);
-        house_shidu.setOnClickListener(this);
-    }
 
     private void initHouse() {
         new Thread(new Runnable() {
@@ -135,55 +116,9 @@ public class DonkyHouse extends AppCompatActivity implements View.OnClickListene
     }
 
 
-    /**
-     * Called when a view has been clicked.
-     *
-     * @param v The view that was clicked.
-     */
-    @SuppressLint("ResourceType")
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.house_ligth:
-                house_light.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_clickcange));
-                house_tem.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_top));
-                house_shidu.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_top));
-                light.setTextColor(Color.WHITE);
-                tem.setTextColor(getResources().getColor(R.color.brown));
-                shidu.setTextColor(getResources().getColor(R.color.brown));
-//                nongdu.setTextColor(getResources().getColor(R.color.brown));
-                lishtControl();
-                break;
-            case R.id.house_tem:
-                house_light.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_top));
-                house_tem.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_clickcange));
-                house_shidu.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_top));
-                light.setTextColor(getResources().getColor(R.color.brown));
-                tem.setTextColor(Color.WHITE);
-                shidu.setTextColor(getResources().getColor(R.color.brown));
-              //  nongdu.setTextColor(getResources().getColor(R.color.brown));
-                temControl();
-                break;
-            case R.id.house_shidu:
-                house_light.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_top));
-                house_tem.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_top));
-                house_shidu.setImageDrawable(getResources().getDrawable(R.mipmap.icon_house_clickcange));
-                light.setTextColor(getResources().getColor(R.color.brown));
-                tem.setTextColor(getResources().getColor(R.color.brown));
-                shidu.setTextColor(Color.WHITE);
-               // nongdu.setTextColor(getResources().getColor(R.color.brown));
-                shiduControl();
-                break;
-        }
-    }
 
 
-    private void shiduControl() {
-    }
 
-    private void temControl() {
-    }
 
-    private void lishtControl() {
-    }
+
 }

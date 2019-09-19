@@ -39,6 +39,8 @@ public class UserHistory {
     }
 
     public String getSensorId() {
+        if (sensorId.length()>8){
+        sensorId=sensorId.substring(5,9);}
         return sensorId;
     }
 
@@ -55,6 +57,8 @@ public class UserHistory {
     }
 
     public String getRFIDInfo() {
+        if (RFIDInfo.length()>6){
+            RFIDInfo=RFIDInfo.substring(2,RFIDInfo.length()-1);}
         return RFIDInfo;
     }
 
@@ -63,6 +67,7 @@ public class UserHistory {
     }
 
     public String getTime() {
+        time=time.substring(10,16);
         return time;
     }
 

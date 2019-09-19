@@ -1,6 +1,6 @@
 package com.donkeyhouse.donkyhouse.house;
 /*
- * 驴舍温度、湿度、气体浓度数据可视化（折线图）
+ * 游泳池温度、湿度、气体浓度数据可视化（折线图）
  * */
 
 import android.annotation.SuppressLint;
@@ -82,8 +82,8 @@ public class DataVisual extends AppCompatActivity {
                 .yStroke((Stroke) null, null, null, (String) null, (String) null);
 
         cartesian.tooltip().positionMode(TooltipPositionMode.POINT);
-        cartesian.title("泳池温度、湿度、压力条件数据可视化");
-        cartesian.yAxis(0).title("温湿度、光照等数值");
+        cartesian.title("泳池温度、湿度数据可视化");
+        cartesian.yAxis(0).title("温度，湿度数值");
         cartesian.xAxis(0).labels().padding(5d, 5d, 5d, 5d);
         initServe();
     }
@@ -135,12 +135,12 @@ public class DataVisual extends AppCompatActivity {
                 JSONObject row1 = null;
                 JSONObject row2 = null;
                 JSONObject row3 = null;
-                for (int i = 8; i >= 0; i--) {
+                for (int i = data1.length()-1; i >= 0; i--) {
                     try {
                         row1 = data1.getJSONObject(i);
                         row2 = data2.getJSONObject(i);
                         row3 = data3.getJSONObject(i);
-                        seriesData.add(new CustomDataEntry(row1.getString("time"), Float.parseFloat(row1.getString("waterTemperature")), Float.parseFloat(row2.getString("airHumidity")), Float.parseFloat(row3.getString("waterTemperature"))));
+                        seriesData.add(new CustomDataEntry((row1.getString("time")).substring(10,16), Float.parseFloat(row1.getString("waterTemperature")), Float.parseFloat(row2.getString("airHumidity")), Float.parseFloat(row3.getString("waterTemperature"))));
                         Log.e("输出:", "parseJSONWithJsonObject: " + row1.get("waterTemperature"));
                         handler.sendEmptyMessage(1);
                     } catch (JSONException e) {

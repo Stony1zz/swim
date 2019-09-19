@@ -74,8 +74,8 @@ public class HouseAdapter extends RecyclerView.Adapter<HouseAdapter.ViewHolder>{
         UserHistory house = mhouse.get(i);
         viewHolder.house_num.setText(String.valueOf(house.getUserId()));
         viewHolder.house_shuliang.setText(house.getRFIDInfo());
-        viewHolder.house_wendu.setText(house.getWaterPressure());
-        viewHolder.house_shidu.setText(house.getSensorId());
+        viewHolder.house_wendu.setText(house.getSensorId());
+        viewHolder.house_shidu.setText(house.getWaterPressure());
         viewHolder.house_nongdu.setText(house.getTime());
         viewHolder.house_warning.setVisibility(View.INVISIBLE);
         //湿度

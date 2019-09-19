@@ -1,6 +1,6 @@
 package com.donkeyhouse.donkyhouse.production;
 /*
-* 显示驴的详细信息并进行修改等操作
+* 显示的详细信息并进行修改等操作
 * */
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

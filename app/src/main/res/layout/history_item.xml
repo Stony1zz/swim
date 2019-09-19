@@ -62,7 +62,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="驴   ID  号："
+                        android:text="ID     号："
                         />
                     <TextView
                         android:id="@+id/history_donkeyid"
@@ -100,7 +100,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="类         型 ："
+                        android:text="余         额 ："
                         />
 
                     <TextView
@@ -128,7 +128,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="时         间："
+                        android:text="设         备："
                         />
                     <TextView
                         android:id="@+id/history_time"

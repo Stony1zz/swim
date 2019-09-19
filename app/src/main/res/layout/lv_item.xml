@@ -62,7 +62,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="水         深："
+                        android:text="池         号："
                         />
                     <TextView
                         android:id="@+id/swim_deep"
@@ -81,7 +81,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="水         温："
+                        android:text="时         间："
                         />
                     <TextView
                         android:id="@+id/swim_tep"
@@ -108,7 +108,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="人         数："
+                        android:text="池         名："
                         />
                     <TextView
                         android:id="@+id/swim_number"
@@ -127,7 +127,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="时         间："
+                        android:text="人         数："
                         />
 
                     <TextView

@@ -88,9 +88,9 @@ public class LittleAdapter extends RecyclerView.Adapter<LittleAdapter.ViewHolder
         viewHolder.picihao.setText(little.getSwimmingPoolId());
         viewHolder.pound.setText(String.valueOf(little.getWaterLevel()));
         Log.e(TAG, "hhhhhhhhhhh: "+ viewHolder.pound.getText().toString().trim());
-        //viewHolder.location.setText(little.getLocation());
+        viewHolder.location.setText(little.getName());
         viewHolder.jinlan.setText(little.getTime());
-        viewHolder.shichang.setText("100");
+        viewHolder.shichang.setText("6");
     }
 
     @Override

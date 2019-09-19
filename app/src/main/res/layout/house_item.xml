@@ -61,7 +61,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="位置："
+                            android:text="卡号："
                             />
                         <TextView
                             android:id="@+id/house_shuliang"
@@ -80,7 +80,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="温度："
+                            android:text="设备号："
                             />
                         <TextView
                             android:id="@+id/house_wendu"
@@ -107,7 +107,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="湿         度："
+                            android:text="水压："
                             />
                         <TextView
                             android:id="@+id/house_shidu"
@@ -126,7 +126,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="水压："
+                            android:text="时间："
                             />
                         <TextView
                             android:id="@+id/house_nongdu"

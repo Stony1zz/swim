@@ -91,7 +91,6 @@ public class LittleLv extends AppCompatActivity {
                         row = data.getJSONObject(i);
                             Natatorium little = new Natatorium(Long.parseLong(row.getString("natatoriumId")),formate,row.getString("name"),Float.parseFloat(row.getString("waterLevel")),row.getString("swimmingPoolId"),row.getString("detail"));
                             littleList.add(little);
-                            ToastUtil.showToast(LittleLv.this,littleList.get(i).toString());
                             Log.e("每个尺子:",littleList.get(i).toString());
                             Log.e("输出每个名字:"," "+i+"  "+row.get("natatoriumId"));
                     } catch (JSONException e) {

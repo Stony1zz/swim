@@ -113,12 +113,12 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         UserHistory rHistory = mrhitory.get(i);
-        viewHolder.picihao.setText(String.valueOf(rHistory.getUserDataId()));
+        viewHolder.picihao.setText(rHistory.getTime());
         viewHolder.donkeyid.setText(String.valueOf(rHistory.getUserId()));
         viewHolder.rfid.setText(rHistory.getSensorId());
         viewHolder.size.setText(rHistory.getWaterPressure());
         viewHolder.time.setText(rHistory.getRFIDInfo());
-        viewHolder.pid.setText(rHistory.getTime());
+        viewHolder.pid.setText(String.valueOf(rHistory.getUserDataId()));
     }
 
     @Override
